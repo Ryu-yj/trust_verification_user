@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0">
+    <title>신뢰검증 - 사용자</title>
+    <!-- CSS ui -->
+    <link rel="stylesheet" href="../../css/style_user.css">
+    <!-- JS libs -->
+    <script src="../../js/libs/jquery-3.6.0.js"></script>
+    <script src="../../js/libs/jquery-ui.min.js"></script>
+    <script src="../../js/libs/jquery.fullPage.min.js"></script>
+    <script src="../../js/libs/slick.min.js"></script>
+    <script src="../../js/libs/swiper.min.js"></script>
+    <!-- JS ui -->
+    <script src="../../js/script.js"></script>
+</head>
+<body>
+    <div class="mainWrap"> <!-- 메인화면 인 경우 mainWrap 클래스 -->
+        <!-- skip -->
+        <ul class="skip">
+            <li>
+                <a href="#content">본문 바로가기</a>
+            </li>
+            <li>
+                <a href="#gnb">주메뉴 바로가기</a>
+            </li>
+        </ul>
+        <!-- //skip -->
+
+        <!-- header -->
+<!--        <div th:include="common_menu :: header"></div>-->
+        <header>
+            <div class="navWrap">
+                <nav>
+                    <div class="logo">
+                        <a href="/main/get_banner_list">
+                            <img src="../../images/common/img_logo_komsco.png" alt="한국조폐공사 로고">
+                        </a>
+                    </div>
+
+                    <div id="gnb" class="gnb">
+                        <ul>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 소개</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/main/get_sguide_view">서비스 안내</a>
+                                        </li>
+                                        <li>
+                                            <a href="/faq/get_faq_list">FAQ</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/get_pguide_view">협력사 안내</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 조회</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">현황</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/search">조회</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">새소식</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/notice/get_notice_list">공지사항</a>
+                                        </li>
+                                        <li>
+                                            <a href="/news/get_news_list">뉴스/홍보</a>
+                                        </li>
+                                        <li>
+                                            <a href="/reference/get_reference_list">자료실</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="btn_gnb"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+
+        <!-- fullpage -->
+        <div id="fullpage">
+            <!-- section 1 : visual -->
+            <section class="section visual" id="section0">
+                <div id="content" class="mainVisual visual_wrap">
+                    <div class="mainContainer visual_slide_wrap">
+                        <div class="slideCarrier swiper-wrapper">
+                            <!-- [D] 배너 1개만 있는 경우 : swiper-single 클래스 추가 -->
+<!--                            <div class="mainSlide slide_01 on swiper-slide swiper-single">-->
+<!--                                <div class="mainInner visual_item">-->
+<!--									<div class="mainVisual_tit">-->
+<!--                                        <p class="txt1 txt-white">안전한 NFT 거래를 위하여 한국조폐공사가 앞장 서겠습니다.</p>-->
+<!--                                        <h1>NFT 거래할 땐, <br><b class="txt-blue">온락(樂) NFT</b> 아이콘을 확인해주세요.</h1>-->
+<!--                                        <p class="txt2">온락(樂) NFT는 한국조폐공사가 검증한 NFT로 사기 위험이 적습니다.</p>-->
+<!--                                        <div class="txt3">-->
+<!--                                            <p>온락 NFT는 (온)전히 (락)즐길 수 있는 NFT로, 확실한 NFT(On Lock)의 뜻을 담은 서비스 이름입니다.</p>-->
+<!--                                            <p>한국조폐공사는 NFT 검증을 수행하며, NFT의 가격 변동과는 무관합니다.</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="img_mainVisual main_01"></div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <!-- //[D] 배너 1개만 있는 경우 -->
+
+                            <!-- [D] 배너 2개 이상 있는 경우 -->
+                            <!-- slide 1 -->
+<!--                            <div class="mainSlide slide_01 on swiper-slide">-->
+<!--                                <div class="mainInner visual_item">-->
+<!--									<div class="mainVisual_tit">-->
+<!--                                        <p class="txt1 txt-white">안전한 NFT 거래를 위하여 한국조폐공사가 앞장 서겠습니다.</p>-->
+<!--                                        <h1>NFT 거래할 땐, <br><b class="txt-blue">온락(樂) NFT</b> 아이콘을 확인해주세요.</h1>-->
+<!--                                        <p class="txt2">온락(樂) NFT는 한국조폐공사가 검증한 NFT로 사기 위험이 적습니다.</p>-->
+<!--                                        <div class="txt3">-->
+<!--                                            <p>온락 NFT는 (온)전히 (락)즐길 수 있는 NFT로, 확실한 NFT(On Lock)의 뜻을 담은 서비스 이름입니다.</p>-->
+<!--                                            <p>한국조폐공사는 NFT 검증을 수행하며, NFT의 가격 변동과는 무관합니다.</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="img_mainVisual main_01"></div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <!-- //slide 1 -->
+
+                            <!-- slide 2 -->
+<!--							<div class="mainSlide slide_02 swiper-slide" th:each="list:${paging}">-->
+<!--                                <div th:text="${list.getContents()}"></div>-->
+<!--                            </div>-->
+                            <div class="mainSlide slide_02 swiper-slide" th:each="list:${banner}">
+                                <div th:utext="${list.getContents()}"></div>
+                            </div>
+                            <!-- //slide 2 -->
+
+                            <!-- slide 3 -->
+							<!--<div class="mainSlide slide_03 swiper-slide">
+                                <div class="mainInner visual_item">
+									<div class="mainVisual_tit">
+                                        <p class="txt1 txt-white">안전한 NFT 거래를 위하여 한국조폐공사가 앞장 서겠습니다.</p>
+                                        <h1>NFT 거래할 땐, <br><b class="txt-blue">온락(樂) NFT</b> 아이콘을 확인해주세요.</h1>
+                                        <p class="txt2">온락(樂) NFT는 한국조폐공사가 검증한 NFT로 사기 위험이 적습니다.</p>
+                                        <div class="txt3">
+                                            <p>온락 NFT는 (온)전히 (락)즐길 수 있는 NFT로, 확실한 NFT(On Lock)의 뜻을 담은 서비스 이름입니다.</p>
+                                            <p>한국조폐공사는 NFT 검증을 수행하며, NFT의 가격 변동과는 무관합니다.</p>
+                                        </div>
+                                    </div>
+                                    <div class="img_mainVisual main_03"></div>
+                                </div>
+                            </div>-->
+                            <!-- //slide 3 -->
+                            <!-- //[D] 배너 2개 이상 있는 경우 -->
+                        </div>
+
+                        <!-- 페이지네이션 -->
+                        <div class="visual_control_wrap">
+                            <div class="visual_paging_box"></div>
+                            <div class="visual_control_box">
+                                <a href="javascript:;" class="visual_btn visual_prev"></a>
+                                <a href="javascript:;" class="visual_btn visual_next"></a>
+                                <a href="javascript:;" class="visual_btn visual_pause"></a>
+                                <a href="javascript:;" class="visual_btn visual_play"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- //section 1 : visual -->
+
+            <!-- section 2 -->
+            <section class="section fp-auto-height" id="section1" th:each="list:${MSI}">
+                <div class="mainCont column cont01" th:utext="${list.getContents()}"></div>
+            </section>
+            <!-- //section 2 -->
+
+            <!-- section 3 -->
+            <section class="section fp-auto-height" id="section2" th:each="list:${MSGu}">
+                <div class="mainCont column cont02" th:utext="${list.getContents()}"></div>
+            </section>
+            <!-- //section 3 -->
+
+            <!-- section 4 -->
+            <section class="section fp-auto-height" id="section3" th:each="list:${MTNFT}">
+                <div class="mainCont column cont03" th:utext="${list.getContents()}">
+
+                </div>
+
+                <!-- footer -->
+                <footer>
+                    <div class="footArea">
+                        <ul class="footLink">
+                            <li>
+                                <a href="javascript:;">문의 메일</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">서비스 이용약관</a>
+                            </li>
+                        </ul>
+                        <div class="footLayout">
+                            <div class="footLeft">
+                                <div class="footCi">
+                                    <img src="../../images/common/img_footer_logo_komsco.png" alt="komsco 로고">
+                                </div>
+                                <address>
+                                    <span>(24132) 대전광역시 유성구 과학로 80-67(가정동)</span>
+                                    <span>Copyrightⓒ KOMSCO. All Rights Reserved.</span>
+                                </address>
+                            </div>
+                            <div class="footRight">
+                                <div class="footCi">
+                                    <img src="../../images/common/img_footer_logo_moi.png" alt="morphing-i 로고">
+                                </div>
+                                <address>
+                                    <span>(34132) ​서울 마포구 마포대로 19 신화빌딩 3층 304호</span>
+                                    <span>Copyrightⓒ MORPHING I. All Rights Reserved.</span>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- //footer -->
+            </section>
+            <!-- //section 4 -->
+        </div>
+        <!-- //fullpage -->
+
+        <!-- top button -->
+        <button type="button" class="btn_top" aria-label="top button"></button>
+    </div>
+
+    <script>
+        //########### 퍼블리싱 확인용 스크립트. 개발에 맞게 사용하세요. ###########//
+        //********** main fullpage **********//
+        var pos = 0;
+        var totalSlides;
+        var sliderWidth;
+        var isStop = false;
+        var objId = "";
+
+        //top move
+        $(".btn_top").click(function(){$.fn.fullpage.moveTo(1);});
+
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                //options here
+                //responsive: true,
+                responsiveWidth:1400,
+                scrollingSpeed: 300,
+                navigation: true,  //우측페이저유무
+                autoScrolling:true,
+                scrollHorizontally: true,
+                slidesNavPosition: 'bottom', //네비게이션 위치 (top,bottom)
+                navigationTooltips: ['01 메인', '02 서비스 소개', '03 기업 안내', '04 고객사', '05'], //navigation active시 타이틀 노출여부(hover포함)
+                fitToSection: true,
+                fitToSectionDelay:1000, // 섹션 넘어갈 때 걸리는 딜레이 시간
+                keyboardScrolling: true, // 키보드 방향키로 스크롤 컨트롤 여부
+                animateAnchor: true,
+                recordHistory: true,
+                sectionsColor: ['#f2f2f2', '', '', 'whitesmoke', '', ''], // 섹션별 컬러
+                css3: true,
+                afterLoad: function (anchorLink, index) {
+                    if (index) {
+                        $('#fp-nav li').removeClass("color");
+                    }
+                    if(index==4){
+                        $('#fp-nav li').addClass("color");
+                    }
+                    if(index==6){
+                        $('#fp-nav li').removeClass("color");
+                    }
+                }
+            });
+
+            var arrSection = ["01 서비스 소개 이동", "02 사용자 안내 이동", "03 기업 안내 이동", "04 고객사 이동", "05"];
+
+            $("#fp-nav li").each(function(q) {
+                $(this).find("a").attr("title", arrSection[q]);
+            });
+
+            //********** main visual width **********//
+            const wd = $(window).width();
+            $('.mainContainer').width(wd);
+            $('.mainVisual').width(wd);
+            $('.mainSlide').width(wd);
+
+            $(window).resize(function () {
+                const wd = $(window).width();
+                $('.mainContainer').width(wd);
+                $('.mainVisual').width(wd);
+                $('.mainSlide').width(wd);
+            });
+
+            //********** main visual paging **********//
+            if ($('.mainContainer .swiper-slide').length > 1) {
+                var keys = [];
+                var swiper = new Swiper('.visual_slide_wrap', {
+                    // pagination: '.visual_paging_box',
+                    // paginationClickable: true,
+                    // nextButton: '.visual_next',
+                    // prevButton: '.visual_prev',
+                    // spaceBetween: 30,
+                    slidesPerView : 'auto',
+                    //loop:true,
+                    //loopAdditionalSlides : 1,
+                    autoplay: {
+                        delay: 6000,
+                        disableOnInteraction: false,
+                    },
+                    pagination : { // 페이징 설정
+                        el : '.visual_paging_box',
+                        clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+                        renderBullet: function (index, className) {
+                            return '<div class="' + className + '">' + (keys[index]) +
+                            '</div>';
+                        },
+                    },
+                    navigation : { // 네비게이션 설정
+                        nextEl : '.visual_next', // 다음 버튼 클래스명
+                        prevEl : '.visual_prev', // 이번 버튼 클래스명
+                    },
+                });
+            }
+
+            $('.visual_btn.visual_play').on('click',function(){
+                $('.visual_play').hide();
+                $('.visual_pause').show();
+                swiper.autoplay.start();
+            })
+
+            $('.visual_btn.visual_pause').on('click',function(){
+                $('.visual_pause').hide();
+                $('.visual_play').show();
+                swiper.autoplay.stop();
+            })
+
+            var slideLength = $('.visual_slide_wrap .visual_item').length; //슬라이드 총갯수 구하기
+            if(slideLength <= 1){
+                $(".visual_control_wrap").hide();
+            }
+
+            for(var i = 0; i < slideLength - 1; i++){
+                keys.push($('.visual_slide_wrap .visual_item').eq(i + 1).find('.paging_text').text());
+                $('.visual_slide_wrap .visual_control_wrap .visual_paging_box .swiper-pagination-bullet').eq(i).text(keys[i]);
+            }
+
+            //********** main nft slide **********//
+            var $slider = $(".card-list").slick({
+                //infinite: true,
+                autoplay:true,
+                autoplaySpeed:1500,
+                slidesToShow: 4,
+                slidesToScroll:2,
+                arrows:true,
+                prevArrow:'<button type="button" class="slick-prev"></button>',
+                nextArrow:'<button type="button" class="slick-next"></button>',
+                centerMode:true,
+                dots: false,
+                pauseOnHover : false,
+                pauseOnFocus : false,
+                pauseOnDotsHover : false,
+                responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: false
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        dots: false
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: false
+                    }
+                }]
+            });
+
+            $slider.on('touchcancel touchmove', function(){
+                $slider.slick('slickPlay');
+            });
+        });
+    </script>
+</body>
+</html>

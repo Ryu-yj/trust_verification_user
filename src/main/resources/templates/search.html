@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0">
+    <title>신뢰검증 - 사용자</title>
+    <!-- CSS ui -->
+    <link rel="stylesheet" href="../../css/style_user.css">
+    <!-- JS libs -->
+    <script src="../../js/libs/jquery-3.6.0.js"></script>
+    <script src="../../js/libs/jquery-ui.min.js"></script>
+    <script src="../../js/libs/jquery.fullPage.min.js"></script>
+    <script src="../../js/libs/slick.min.js"></script>
+    <script src="../../js/libs/swiper.min.js"></script>
+    <!-- JS ui -->
+    <script src="../../js/script.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <!-- skip -->
+        <ul class="skip">
+            <li>
+                <a href="#content">본문 바로가기</a>
+            </li>
+            <li>
+                <a href="#gnb">주메뉴 바로가기</a>
+            </li>
+        </ul>
+        <!-- //skip -->
+
+        <!-- header -->
+        <header>
+            <div class="navWrap">
+                <nav>
+                    <div class="logo">
+                        <a href="/main/get_banner_list">
+                            <img src="../../images/common/img_logo_komsco.png" alt="한국조폐공사 로고">
+                        </a>
+                    </div>
+
+                    <div id="gnb" class="gnb">
+                        <ul>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 소개</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/main/get_sguide_view">서비스 안내</a>
+                                        </li>
+                                        <li>
+                                            <a href="/faq/get_faq_list">FAQ</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/get_pguide_view">협력사 안내</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 조회</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">현황</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/search">조회</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">새소식</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/notice/get_notice_list">공지사항</a>
+                                        </li>
+                                        <li>
+                                            <a href="/news/get_news_list">뉴스/홍보</a>
+                                        </li>
+                                        <li>
+                                            <a href="/reference/get_reference_list">자료실</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="btn_gnb"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+
+        <!-- container -->
+        <div class="container">
+            <!-- breadcrumb -->
+            <div class="breadCrumb">
+                <ul>
+                    <li><a href="/">홈</a></li>
+                    <li><a href="javascript:;">서비스 조회</a></li>
+                    <li class="on" title="현재 위치"><a href="javascript:;">조회</a></li>
+                </ul>
+            </div>
+            <!-- //breadcrumb -->
+
+            <div id="content" class="contWrap news">
+                <div class="newsWrap">
+                    <div class="subVisual_tit notice">
+                        <h2>조회</h2>
+                    </div>
+                    <div class="tableArea pt-0">
+                        <div class="newsMore mb-30">
+                            <div class="selectArea mb-0 notice">
+                                <div class="cmb_wrap">
+                                    <div class="cmb_select">
+                                        <a href="javascript:;">전체</a>
+                                    </div>
+                                    <ul class="cmb_optionBox">
+                                        <li>
+                                            <a href="javascript:;" title="검색분류선택">전체</a>
+                                        </li>
+                                        <li title="사용">
+                                            <a href="javascript:;">사용</a>
+                                        </li>
+                                        <li title="기타">
+                                            <a href="javascript:;">기타</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="inputSch">
+                                    <label for="keyword" class="blind">검색어 입력</label>
+                                    <input type="text" id="keyword" name="keyword" placeholder="검색어를 입력해주세요">
+                                    <button type="button">
+                                        <span class="blind">검색하기</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mobileWrap tblWrap">
+                            <table id="myTable" class="list">
+                                <span class="tableHead">총 <b class="tbl_cnt">0</b>건</span>
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width:8%;">
+                                    <col style="width:auto;">
+                                    <col style="width:11%;">
+                                    <col style="width:11%;">
+                                    <col style="width:8%;">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">번호</th>
+                                        <th scope="col">제목</th>
+                                        <th scope="col">담당기관</th>
+                                        <th scope="col">등록일</th>
+                                        <th scope="col">조회수</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2</td>
+                                        <td class="subject">
+                                            <a href="javascript:;">
+                                                개발용 환경이 별도로 존재하나요?
+                                            </a>
+                                        </td>
+                                        <td>한국조폐공사</td>
+                                        <td>2022-03-03</td>
+                                        <td>250</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="subject">
+                                            <a href="javascript:;">
+                                                라이브러리는 JAVA로 개발되어야 하는가요?
+                                            </a>
+                                        </td>
+                                        <td>한국조폐공사</td>
+                                        <td>2022-03-03</td>
+                                        <td>228</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- paging -->
+                        <div class="pagiWrap">
+                            <div id="pagination">
+                                <div class="pagination">
+                                    <div class="btn_first">
+                                        <a href="javascript:;">마지막</a>
+                                    </div>
+                                    <div class="btn_number on">
+                                        <a href="javascript:;">1</a>
+                                    </div>
+                                    <div class="btn_number">
+                                        <a href="javascript:;">2</a>
+                                    </div>
+                                    <div class="btn_last">
+                                        <a href="javascript:;">마지막</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //paging -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //container -->
+
+        <!-- footer -->
+        <footer>
+            <div class="footArea">
+                <ul class="footLink">
+                    <li>
+                        <a href="javascript:;">문의 메일</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">서비스 이용약관</a>
+                    </li>
+                </ul>
+                <div class="footLayout">
+                    <div class="footLeft">
+                        <div class="footCi">
+                            <img src="../../images/common/img_footer_logo_komsco.png" alt="komsco 로고">
+                        </div>
+                        <address>
+                            <span>(24132) 대전광역시 유성구 과학로 80-67(가정동)</span>
+                            <span>Copyrightⓒ KOMSCO. All Rights Reserved.</span>
+                        </address>
+                    </div>
+                    <div class="footRight">
+                        <div class="footCi">
+                            <img src="../../images/common/img_footer_logo_moi.png" alt="morphing-i 로고">
+                        </div>
+                        <address>
+                            <span>(34132) ​서울 마포구 마포대로 19 신화빌딩 3층 304호</span>
+                            <span>Copyrightⓒ MORPHING I. All Rights Reserved.</span>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //footer -->
+
+        <!-- top button -->
+        <button type="button" class="btn_top" aria-label="top button"></button>
+    </div>
+
+    <script>
+        //########### 퍼블리싱 확인용 스크립트. 개발에 맞게 사용하세요. ###########//
+        $(document).ready(function () {
+            //select box
+            $(".cmb_wrap .cmb_select").on("click", function() {
+                fnOpenSelectBox($(this));
+            });
+            $(".cmb_wrap .cmb_optionBox").find("a").on("click", function(event) {
+                fnOpenSelectBox($(this));
+            });
+        });
+
+        function fnToggle(obj) {
+            if ($(obj).is(".on")) {
+                $(obj).removeClass("on");
+                $(obj).attr('title', '접기');
+            } else {
+                $(".faqList li").removeClass("on");
+                $(".faqList li").attr('title', '접기');
+                $(obj).addClass("on");
+                $(obj).attr('title', '펼치기');
+            }
+        }
+
+        function fnOpenSelectBox(tgElement) {
+            var element = ($(tgElement).prop("tagName") == "A" ? tgElement : $(tgElement).find("a"));
+            $(".newsMore .selectArea").each(function() {
+                if ($(this).is(".on")) {
+                    if ($(this).find(".cmb_optionBox").css("display") != "none") {
+                        $(this).removeClass("on");
+                    }
+                }
+                $(this).find(".cmb_optionBox").toggle("on");
+                var selectOption = $(this).find(".cmb_optionBox").find(element).length;
+                if ($(this).find(element).length > 0) {
+                    $(this).find(".cmb_select a").text($(element).text());
+                    if ($(this).find(".cmb_optionBox").css("display") == "none") {
+                        $(this).find(".cmb_optionBox").toggle("on");
+                        $(this).addClass("on");
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

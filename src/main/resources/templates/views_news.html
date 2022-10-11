@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0">
+    <title>신뢰검증 - 사용자</title>
+    <!-- CSS ui -->
+    <link rel="stylesheet" href="../../css/style_user.css">
+    <!-- JS libs -->
+    <script src="../../js/libs/jquery-3.6.0.js"></script>
+    <script src="../../js/libs/jquery-ui.min.js"></script>
+    <script src="../../js/libs/jquery.fullPage.min.js"></script>
+    <script src="../../js/libs/slick.min.js"></script>
+    <script src="../../js/libs/swiper.min.js"></script>
+    <!-- JS ui -->
+    <script src="../../js/script.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <!-- skip -->
+        <ul class="skip">
+            <li>
+                <a href="#content">본문 바로가기</a>
+            </li>
+            <li>
+                <a href="#gnb">주메뉴 바로가기</a>
+            </li>
+        </ul>
+        <!-- //skip -->
+
+        <!-- header -->
+        <header>
+            <div class="navWrap">
+                <nav>
+                    <div class="logo">
+                        <a href="/main/get_banner_list">
+                            <img src="../../images/common/img_logo_komsco.png" alt="한국조폐공사 로고">
+                        </a>
+                    </div>
+
+                    <div id="gnb" class="gnb">
+                        <ul>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 소개</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/main/get_sguide_view">서비스 안내</a>
+                                        </li>
+                                        <li>
+                                            <a href="/faq/get_faq_list">FAQ</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/get_pguide_view">협력사 안내</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 조회</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">현황</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/search">조회</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">새소식</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/notice/get_notice_list">공지사항</a>
+                                        </li>
+                                        <li>
+                                            <a href="/news/get_news_list">뉴스/홍보</a>
+                                        </li>
+                                        <li>
+                                            <a href="/reference/get_reference_list">자료실</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="btn_gnb"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+
+        <!-- container -->
+        <div class="container" th:each="list, index:${paging}">
+            <!-- breadcrumb -->
+            <div class="breadCrumb">
+                <ul>
+                    <li><a href="/">홈</a></li>
+                    <li><a href="javascript:;">NFT 뉴스</a></li>
+                    <li class="on" title="현재 위치"><a href="javascript:;" >뉴스</a></li>
+                </ul>
+            </div>
+            <!-- //breadcrumb -->
+
+            <div id="content" class="contWrap newsDetail">
+                <div class="subVisual_tit news detail">
+                    <div class="newsTxt detail">
+                        <b>뉴스/홍보</b>
+                        <span th:text="${#temporals.format(list.getCreateTime(),'yyyy-MM-dd')}">2022-07-12</span>
+                    </div>
+                    <div class="newsDetail">
+                        <button type="button" class="moveBtn btn_newsPrev"
+                                th:disabled="${!paging.hasPrevious}" th:onclick="'location.href=\''+ @{|?page=${paging.number-1}|}+'\''">
+
+                            <span class="blind">이전글</span>
+                        </button>
+                        <h3 th:text="${list.getNewsTitle}">IC 운전면허증 시범발급 중단 안내&nbsp;</h3>
+                        <button type="button" class="moveBtn btn_newsNext"
+                                th:disabled="${!paging.hasNext}"
+                                th:onclick="'location.href=\''+ @{|?page=${paging.number+1}|}+'\''">
+                            <span class="blind">다음글</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="newsArea">
+                    <div class="newsConArea">
+                        <div class="newsContent" th:utext="${list.getContents}">
+<!--                            <p><img src="../../images/@temp/sample.png" alt=""> &lt;!&ndash; temp폴더는 임시폴더 입니다. &ndash;&gt;</p>-->
+<!--                            <p>안녕하세요, 모바일 신분증 운영단입니다.&nbsp;<br />-->
+<!--                            모바일 신분증 서비스를 이용해 주셔서 감사드립니다.&nbsp;</p>-->
+<!--                            <p>모바일 운전면허증 발급을 위하여 시범운영 기간 동안 준비된 IC 운전면허증이 소진되어 온라인 신청 및 시범운영 지역 현장 발급이 불가능합니다.&nbsp;</p>-->
+<!--                            <p>IC 운전면허증은 7월 28일 전국 확대 운영 시 신청 바랍니다.&nbsp;</p>-->
+<!--                            <p>향후에도 보다 더 편리한 서비스를 제공할 수 있도록 노력하겠습니다.&nbsp;</p>-->
+<!--                            <p>감사합니다.&nbsp;</p>-->
+<!--                            <p>► 참고 : QR코드를 이용한 모바일 운전면허증 발급은 시범지역 운전면허시험장(서울 서부, 대전)에서 계속 가능합니다.&nbsp;</p>-->
+                        </div>
+
+                        <!-- 첨부파일 -->
+<!--                        <div class="addFile">-->
+<!--                            <h3>첨부파일</h3>-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <span>220504 (조간) 모바일 운전면허증을 활용한 편의서비스 발굴한다(디지털안전정책과).pdf</span>-->
+<!--                                    <a href="javascript:;">다운로드</a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>220504 (조간) 모바일 운전면허증을 활용한 편의서비스 발굴한다(디지털안전정책과).hwpx</span>-->
+<!--                                    <a href="javascript:;">다운로드</a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+                        <!-- //첨부파일 -->
+
+                        <div class="newsCon_bottom">
+                            <button type="button" class="btn_secondary">목록 보기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //container -->
+
+        <!-- footer -->
+        <footer>
+            <div class="footArea">
+                <ul class="footLink">
+                    <li>
+                        <a href="javascript:;">문의 메일</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">서비스 이용약관</a>
+                    </li>
+                </ul>
+                <div class="footLayout">
+                    <div class="footLeft">
+                        <div class="footCi">
+                            <img src="../../images/common/img_footer_logo_komsco.png" alt="komsco 로고">
+                        </div>
+                        <address>
+                            <span>(24132) 대전광역시 유성구 과학로 80-67(가정동)</span>
+                            <span>Copyrightⓒ KOMSCO. All Rights Reserved.</span>
+                        </address>
+                    </div>
+                    <div class="footRight">
+                        <div class="footCi">
+                            <img src="../../images/common/img_footer_logo_moi.png" alt="morphing-i 로고">
+                        </div>
+                        <address>
+                            <span>(34132) ​서울 마포구 마포대로 19 신화빌딩 3층 304호</span>
+                            <span>Copyrightⓒ MORPHING I. All Rights Reserved.</span>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //footer -->
+
+        <!-- top button -->
+        <button type="button" class="btn_top" aria-label="top button"></button>
+    </div>
+</body>
+</html>

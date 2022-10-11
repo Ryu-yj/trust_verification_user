@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0">
+    <title>신뢰검증 - 사용자</title>
+    <!-- CSS ui -->
+    <link rel="stylesheet" href="../../css/style_user.css">
+    <!-- JS libs -->
+    <script src="../../js/libs/jquery-3.6.0.js"></script>
+    <script src="../../js/libs/jquery-ui.min.js"></script>
+    <script src="../../js/libs/jquery.fullPage.min.js"></script>
+    <script src="../../js/libs/slick.min.js"></script>
+    <script src="../../js/libs/swiper.min.js"></script>
+    <!-- JS ui -->
+    <script src="../../js/script.js"></script>
+</head>
+<body>
+<header th:fragment="header">
+    <div class="navWrap">
+        <nav>
+            <div class="logo">
+                <a href="/main/get_banner_list">
+                    <img src="../../images/common/img_logo_komsco.png" alt="한국조폐공사 로고">
+                </a>
+            </div>
+
+            <div id="gnb" class="gnb">
+                <ul>
+                    <li>
+                        <a class="disable" href="javascript:;">서비스 소개</a>
+                        <div class="gnb_depthWrap">
+                            <ul>
+                                <li>
+                                    <a href="/main/serviceGuideView">서비스 안내</a>
+                                </li>
+                                <li>
+                                    <a href="/faq/get_faq_list">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="/main/partnersGuideView">협력사 안내</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="disable" href="javascript:;">서비스 조회</a>
+                        <div class="gnb_depthWrap">
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">현황</a>
+                                </li>
+                                <li>
+                                    <a href="/main/search">조회</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="disable" href="javascript:;">새소식</a>
+                        <div class="gnb_depthWrap">
+                            <ul>
+                                <li>
+                                    <a href="/notice/get_notice_list">공지사항</a>
+                                </li>
+                                <li>
+                                    <a href="/news/get_news_list">뉴스/홍보</a>
+                                </li>
+                                <li>
+                                    <a href="/reference/get_reference_list">자료실</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn_gnb"></div>
+            </div>
+        </nav>
+    </div>
+</header>
+</body>
+</html>

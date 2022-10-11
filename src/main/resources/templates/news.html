@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0">
+    <title>신뢰검증 - 사용자</title>
+    <!-- CSS ui -->
+    <link rel="stylesheet" href="../../css/style_user.css">
+    <!-- JS libs -->
+    <script src="../../js/libs/jquery-3.6.0.js"></script>
+    <script src="../../js/libs/jquery-ui.min.js"></script>
+    <script src="../../js/libs/jquery.fullPage.min.js"></script>
+    <script src="../../js/libs/slick.min.js"></script>
+    <script src="../../js/libs/swiper.min.js"></script>
+    <!-- JS ui -->
+    <script src="../../js/script.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <!-- skip -->
+        <ul class="skip">
+            <li>
+                <a href="#content">본문 바로가기</a>
+            </li>
+            <li>
+                <a href="#gnb">주메뉴 바로가기</a>
+            </li>
+        </ul>
+        <!-- //skip -->
+
+        <!-- header -->
+        <header>
+            <div class="navWrap">
+                <nav>
+                    <div class="logo">
+                        <a href="/main/get_banner_list">
+                            <img src="../../images/common/img_logo_komsco.png" alt="한국조폐공사 로고">
+                        </a>
+                    </div>
+
+                    <div id="gnb" class="gnb">
+                        <ul>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 소개</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/main/get_sguide_view">서비스 안내</a>
+                                        </li>
+                                        <li>
+                                            <a href="/faq/get_faq_list">FAQ</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/get_pguide_view">협력사 안내</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 조회</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">현황</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/search">조회</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">새소식</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/notice/get_notice_list">공지사항</a>
+                                        </li>
+                                        <li>
+                                            <a href="/news/get_news_list">뉴스/홍보</a>
+                                        </li>
+                                        <li>
+                                            <a href="/reference/get_reference_list">자료실</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="btn_gnb"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+
+        <!-- container -->
+        <div class="container">
+            <!-- breadcrumb -->
+            <div class="breadCrumb">
+                <ul>
+                    <li><a href="/">홈</a></li>
+                    <li><a href="javascript:;">새소식</a></li>
+                    <li class="on" title="현재 위치"><a href="javascript:;">뉴스/홍보</a></li>
+                </ul>
+            </div>
+            <!-- //breadcrumb -->
+
+            <div id="content" class="contWrap">
+                <div class="subVisual_tit news">
+                    <h2>뉴스&middot;홍보</h2>
+                </div>
+                <div class="newsMore">
+                    <div class="newsTab">
+                        <ul>
+                            <!-- 탭 선택 시 li 에 on 클래스 추가 -->
+                            <li id="all" title="전체">
+                                <a href="javascript:;" title="전체" onclick="location.href='/news/get_news_list'">전체</a>
+                            </li>
+                            <li id="news">
+                                <a href="javascript:;" title="뉴스" onclick="location.href='/news/get_news_list_news'">뉴스</a>
+                            </li>
+                            <li id="promotion">
+                                <a href="javascript:;" title="홍보" onclick="location.href='/news/get_news_list_promotion'">홍보</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="newsArea">
+                    <ul class="newsBox">
+                        <li th:each="list:${paging}">
+                            <a th:href="${'/news/get_news_detail?newsId='+list.getNewsId()}">
+                                <div class="newsTxt">
+                                    <div class="titleBbsType">
+                                        <b th:text="${list.getNewsType()}">보도자료</b>
+                                        <span class="ml-5" th:text="${#temporals.format(list.getCreateTime(),'yyyy-MM-dd')}">2022-05-03</span>
+                                    </div>
+                                    <div class="descBbsType" th:text="${list.getNewsTitle()}">신뢰검증 서비스를 발굴한다 신뢰검증 서비스를 발굴한다 신뢰검증 서비스를 발굴한다</div>
+                                </div>
+                                <div class="newsImage" >
+                                    <img th:src="${list.getImagePath()}" alt="" > <!-- temp폴더는 임시폴더 입니다. -->
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- paging -->
+                    <div role="navigation" aria-label="페이지 선택" class="pagiWrap">
+                        <div class="pagination" th:if="${!paging.isEmpty()}">
+
+                            <button type="button" class="btn_first"
+                                    th:disabled="${!paging.hasPrevious}"
+                                    th:onclick="'location.href=\''+ @{|?page=${paging.number-1}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''"> <!-- 이전 페이지 -->
+                                <span class="blind">이전 페이지</span>
+                            </button>
+
+                            <button th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                    th:if="${page >= paging.number-5 and page <= paging.number+4 and paging.number>=5 and paging.number < paging.totalPages-4}"
+                                    th:classappend="${page == paging.number} ? 'btn-pgn-active'" th:disabled="${page == paging.number}" type="button" th:id="${page}" th:onclick="'location.href=\''+ @{|?page=${page}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''">
+                                <em th:text="${page+1}"></em>
+                            </button>
+
+                            <button th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                    th:if="${page >= 0 and page <= 9 and paging.number<5}"
+                                    th:classappend="${page == paging.number} ? 'btn-pgn-active'" th:disabled="${page == paging.number}" type="button" th:id="${page}" th:onclick="'location.href=\''+ @{|?page=${page}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''">
+                                <em th:text="${page+1}"></em>
+                            </button>
+
+                            <button th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                    th:if="${page >= paging.totalPages-10 and page <= paging.totalPages-1 and paging.number>=5 and paging.number >= paging.totalPages-4}"
+                                    th:classappend="${page == paging.number} ? 'btn-pgn-active'" th:disabled="${page == paging.number}" type="button" th:id="${page}" th:onclick="'location.href=\''+ @{|?page=${page}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''">
+                                <em th:text="${page+1}"></em>
+                            </button>
+
+                            <button type="button" class="btn_last"
+                                    th:disabled="${!paging.hasNext}"
+                                    th:onclick="'location.href=\''+ @{|?page=${paging.number+1}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''"> <!-- 다음 페이지 -->
+                                <span class="blind">다음 페이지</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- //paging -->
+                </div>
+            </div>
+        </div>
+        <!-- //container -->
+
+        <!-- footer -->
+        <footer>
+            <div class="footArea">
+                <ul class="footLink">
+                    <li>
+                        <a href="javascript:;">문의 메일</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">서비스 이용약관</a>
+                    </li>
+                </ul>
+                <div class="footLayout">
+                    <div class="footLeft">
+                        <div class="footCi">
+                            <img src="../../images/common/img_footer_logo_komsco.png" alt="komsco 로고">
+                        </div>
+                        <address>
+                            <span>(24132) 대전광역시 유성구 과학로 80-67(가정동)</span>
+                            <span>Copyrightⓒ KOMSCO. All Rights Reserved.</span>
+                        </address>
+                    </div>
+                    <div class="footRight">
+                        <div class="footCi">
+                            <img src="../../images/common/img_footer_logo_moi.png" alt="morphing-i 로고">
+                        </div>
+                        <address>
+                            <span>(34132) ​서울 마포구 마포대로 19 신화빌딩 3층 304호</span>
+                            <span>Copyrightⓒ MORPHING I. All Rights Reserved.</span>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //footer -->
+
+        <!-- top button -->
+        <button type="button" class="btn_top" aria-label="top button"></button>
+    </div>
+
+    <script th:inline="javascript">
+        //########### 퍼블리싱 확인용 스크립트. 개발에 맞게 사용하세요. ###########//
+        $(document).ready(function () {
+            let category = [[${category}]];
+            if(category == 'all') {
+                $("#all").addClass("on");
+            } else if(category == "news") {
+                $("#news").addClass("on");
+            } else if(category == "promotion"){
+                $("#promotion").addClass("on");
+            }
+
+            //newstab
+            $(".newsTab li").on("click", function() {
+                $(".newsTab li").removeClass("on");
+                $(".newsTab li").removeAttr("title");
+                $(this).addClass("on");
+                $(this).attr("title", $(this).find("a").attr("title"));
+            });
+        });
+
+    </script>
+</body>
+</html>

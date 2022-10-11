@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:td="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0">
+    <title>신뢰검증 - 사용자</title>
+    <!-- CSS ui -->
+    <link rel="stylesheet" type="text/css" href="../../css/style_user.css">
+    <!-- JS libs -->
+    <script src="../../js/libs/jquery-3.6.0.js"></script>
+    <script src="../../js/libs/jquery-ui.min.js"></script>
+    <script src="../../js/libs/jquery.fullPage.min.js"></script>
+    <script src="../../js/libs/slick.min.js"></script>
+    <script src="../../js/libs/swiper.min.js"></script>
+    <!-- JS ui -->
+    <script src="../../js/script.js"></script>
+    <script th:inline="javascript">
+        $('div.title').hide();
+        $("div.content").click(function() {
+            $(this).next().slideToggle(1000);
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <!-- skip -->
+        <ul class="skip">
+            <li>
+                <a href="#content">본문 바로가기</a>
+            </li>
+            <li>
+                <a href="#gnb">주메뉴 바로가기</a>
+            </li>
+        </ul>
+        <!-- //skip -->
+
+        <!-- header -->
+        <header>
+            <div class="navWrap">
+                <nav>
+                    <div class="logo">
+                        <a href="/main/get_banner_list">
+                            <img src="../../images/common/img_logo_komsco.png" alt="한국조폐공사 로고">
+                        </a>
+                    </div>
+
+                    <div id="gnb" class="gnb">
+                        <ul>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 소개</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/main/get_sguide_view">서비스 안내</a>
+                                        </li>
+                                        <li>
+                                            <a href="/faq/get_faq_list">FAQ</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/get_pguide_view">협력사 안내</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">서비스 조회</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">현황</a>
+                                        </li>
+                                        <li>
+                                            <a href="/main/search">조회</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="disable" href="javascript:;">새소식</a>
+                                <div class="gnb_depthWrap">
+                                    <ul>
+                                        <li>
+                                            <a href="/notice/get_notice_list">공지사항</a>
+                                        </li>
+                                        <li>
+                                            <a href="/news/get_news_list">뉴스/홍보</a>
+                                        </li>
+                                        <li>
+                                            <a href="/reference/get_reference_list">자료실</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="btn_gnb"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+
+        <!-- container -->
+        <div class="container">
+            <!-- breadcrumb -->
+            <div class="breadCrumb">
+                <ul>
+                    <li><a href="/">홈</a></li>
+                    <li><a href="javascript:;">서비스 소개</a></li>
+                    <li class="on" title="현재 위치"><a href="javascript:;">FAQ</a></li>
+                </ul>
+            </div>
+            <!-- //breadcrumb -->
+
+            <div id="content" class="contWrap news">
+                <div class="newsWrap">
+                    <div class="subVisual_tit notice">
+                        <h2>FAQ</h2>
+                    </div>
+                    <div class="tableArea pt-0">
+                        <div class="newsMore mb-30">
+                            <div class="selectArea mb-0 notice">
+                                <form action="/faq/search" method="get">
+<!--                                    <div class="cmb_wrap">-->
+<!--                                        <div class="cmb_select">-->
+<!--                                            <a href="javascript:;">전체</a>-->
+<!--                                        </div>-->
+<!--                                        <ul class="cmb_optionBox">-->
+<!--                                            <li>-->
+<!--                                                <a href="javascript:;" title="검색분류선택">전체</a>-->
+<!--                                            </li>-->
+<!--                                            <li title="사용">-->
+<!--                                                <a href="javascript:;">사용</a>-->
+<!--                                            </li>-->
+<!--                                            <li title="기타">-->
+<!--                                                <a href="javascript:;">기타</a>-->
+<!--                                            </li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+                                    <div class="inputSch">
+                                        <label for="keyword" class="blind">검색어 입력</label>
+                                        <input type="text" id="keyword" name="keyword" placeholder="제목 키워드를 입력해주세요">
+                                        <button type="button">
+                                            <span class="blind">검색하기</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <ul class ="faqList">
+                            <li onclick="fnToggle(this);" title="접기" th:each="list:${paging}">
+                                <a href="javascript:;" >
+                                    <span th:text="${list.getCategory()}">발급</span>
+                                    <span th:text="${list.getFaqTitle()}">모바일 운전면허증은 어디서 발급 받을 수 있나요?</span>
+                                </a>
+                                <div class="answerBox" th:utext="${list.getContents()}">발급 가능</div>
+                            </li>
+                        </ul>
+
+                        <!-- paging -->
+                        <div role="navigation" aria-label="페이지 선택" class="pagination">
+                            <div class="pagination" th:if="${!paging.isEmpty()}">
+
+                                <button type="button" class="btn_first"
+                                        th:disabled="${!paging.hasPrevious}"
+                                        th:onclick="'location.href=\''+ @{|?page=${paging.number-1}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''"> <!-- 이전 페이지 -->
+                                    <span class="blind">이전 페이지</span>
+                                </button>
+
+                                <button th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                        th:if="${page >= paging.number-5 and page <= paging.number+4 and paging.number>=5 and paging.number < paging.totalPages-4}"
+                                        th:classappend="${page == paging.number} ? 'btn-pgn-active'" th:disabled="${page == paging.number}" type="button" th:id="${page}" th:onclick="'location.href=\''+ @{|?page=${page}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''">
+                                    <em th:text="${page+1}"></em>
+                                </button>
+
+                                <button th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                        th:if="${page >= 0 and page <= 9 and paging.number<5}"
+                                        th:classappend="${page == paging.number} ? 'btn-pgn-active'" th:disabled="${page == paging.number}" type="button" th:id="${page}" th:onclick="'location.href=\''+ @{|?page=${page}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''">
+                                    <em th:text="${page+1}"></em>
+                                </button>
+
+                                <button th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                        th:if="${page >= paging.totalPages-10 and page <= paging.totalPages-1 and paging.number>=5 and paging.number >= paging.totalPages-4}"
+                                        th:classappend="${page == paging.number} ? 'btn-pgn-active'" th:disabled="${page == paging.number}" type="button" th:id="${page}" th:onclick="'location.href=\''+ @{|?page=${page}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''">
+                                    <em th:text="${page+1}"></em>
+                                </button>
+
+                                <button type="button" class="btn_last"
+                                        th:disabled="${!paging.hasNext}"
+                                        th:onclick="'location.href=\''+ @{|?page=${paging.number+1}&searchText=${searchText}&searchTag=${searchTag}&startDate=${startDate}&endDate=${endDate}$activate=${activate}$deactivate=${deactivate}|} +'\''"> <!-- 다음 페이지 -->
+                                    <span class="blind">다음 페이지</span>
+                                </button>
+                            </div>
+                        </div>
+<!--                        <div class="pagiWrap">-->
+<!--                            <div id="pagination">-->
+<!--                                <div class="pagination">-->
+<!--                                    <div class="btn_first">-->
+<!--                                        <a href="javascript:;">마지막</a>-->
+<!--                                    </div>-->
+<!--                                    <div class="btn_number on">-->
+<!--                                        <a href="javascript:;">1</a>-->
+<!--                                    </div>-->
+<!--                                    <div class="btn_number">-->
+<!--                                        <a href="javascript:;">2</a>-->
+<!--                                    </div>-->
+<!--                                    <div class="btn_last">-->
+<!--                                        <a href="javascript:;">마지막</a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <!-- //paging -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //container -->
+
+        <!-- footer -->
+        <footer>
+            <div class="footArea">
+                <ul class="footLink">
+                    <li>
+                        <a href="javascript:;">문의 메일</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">서비스 이용약관</a>
+                    </li>
+                </ul>
+                <div class="footLayout">
+                    <div class="footLeft">
+                        <div class="footCi">
+                            <img src="../../images/common/img_footer_logo_komsco.png" alt="komsco 로고">
+                        </div>
+                        <address>
+                            <span>(24132) 대전광역시 유성구 과학로 80-67(가정동)</span>
+                            <span>Copyrightⓒ KOMSCO. All Rights Reserved.</span>
+                        </address>
+                    </div>
+                    <div class="footRight">
+                        <div class="footCi">
+                            <img src="../../images/common/img_footer_logo_moi.png" alt="morphing-i 로고">
+                        </div>
+                        <address>
+                            <span>(34132) ​서울 마포구 마포대로 19 신화빌딩 3층 304호</span>
+                            <span>Copyrightⓒ MORPHING I. All Rights Reserved.</span>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //footer -->
+
+        <!-- top button -->
+        <button type="button" class="btn_top" aria-label="top button"></button>
+    </div>
+
+    <script>
+        //########### 퍼블리싱 확인용 스크립트. 개발에 맞게 사용하세요. ###########//
+        $(document).ready(function () {
+            //select box
+            $(".cmb_wrap .cmb_select").on("click", function() {
+                fnOpenSelectBox($(this));
+            });
+            $(".cmb_wrap .cmb_optionBox").find("a").on("click", function(event) {
+                fnOpenSelectBox($(this));
+            });
+        });
+
+        function fnToggle(obj) {
+            if ($(obj).is(".on")) {
+                $(obj).removeClass("on");
+                $(obj).attr('title', '접기');
+            } else {
+                $(".faqList li").removeClass("on");
+                $(".faqList li").attr('title', '접기');
+                $(obj).addClass("on");
+                $(obj).attr('title', '펼치기');
+            }
+        }
+
+        function fnOpenSelectBox(tgElement) {
+            var element = ($(tgElement).prop("tagName") == "A" ? tgElement : $(tgElement).find("a"));
+            $(".newsMore .selectArea").each(function() {
+                if ($(this).is(".on")) {
+                    if ($(this).find(".cmb_optionBox").css("display") != "none") {
+                        $(this).removeClass("on");
+                    }
+                }
+                $(this).find(".cmb_optionBox").toggle("on");
+                var selectOption = $(this).find(".cmb_optionBox").find(element).length;
+                if ($(this).find(element).length > 0) {
+                    $(this).find(".cmb_select a").text($(element).text());
+                    if ($(this).find(".cmb_optionBox").css("display") == "none") {
+                        $(this).find(".cmb_optionBox").toggle("on");
+                        $(this).addClass("on");
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
